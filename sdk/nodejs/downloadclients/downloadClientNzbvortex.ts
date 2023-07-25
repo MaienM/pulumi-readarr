@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientNzbvortex("example", {
+ * const example = new readarr.downloadclients.DownloadClientNzbvortex("example", {
  *     enable: true,
  *     host: "nzbvortex",
  *     name: "Example",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex example 1
  * ```
  */
 export class DownloadClientNzbvortex extends pulumi.CustomResource {
@@ -47,7 +47,7 @@ export class DownloadClientNzbvortex extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex';
 
     /**
      * Returns true if the given object is an instance of DownloadClientNzbvortex.  This is designed to work even

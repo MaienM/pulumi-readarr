@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Vuze resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Vuze](https://wiki.servarr.com/readarr/supported#vuze).
+ * <!-- subcategory:Download Clients -->Download Client Flood resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Flood](https://wiki.servarr.com/readarr/supported#flood).
  *
  * ## Example Usage
  *
@@ -14,13 +14,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientVuze("example", {
+ * const example = new readarr.downloadclients.DownloadClientFlood("example", {
+ *     addPaused: true,
+ *     additionalTags: [
+ *         0,
+ *         1,
+ *     ],
  *     enable: true,
- *     host: "vuze",
+ *     fieldTags: ["readarr"],
+ *     host: "flood",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/vuze/",
+ *     urlBase: "/flood/",
  * });
  * ```
  *
@@ -29,12 +35,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientVuze:DownloadClientVuze example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientFlood:DownloadClientFlood example 1
  * ```
  */
-export class DownloadClientVuze extends pulumi.CustomResource {
+export class DownloadClientFlood extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientVuze resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientFlood resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,22 +48,22 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions): DownloadClientVuze {
-        return new DownloadClientVuze(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientFloodState, opts?: pulumi.CustomResourceOptions): DownloadClientFlood {
+        return new DownloadClientFlood(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientVuze:DownloadClientVuze';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientFlood:DownloadClientFlood';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientVuze.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientFlood.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientVuze {
+    public static isInstance(obj: any): obj is DownloadClientFlood {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientVuze.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientFlood.__pulumiType;
     }
 
     /**
@@ -65,17 +71,21 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      */
     public readonly addPaused!: pulumi.Output<boolean>;
     /**
-     * Book category.
+     * Additional tags, `0` Author, `1` Quality, `2` ReleaseGroup, `3` Year, `4` Indexer.
      */
-    public readonly bookCategory!: pulumi.Output<string>;
+    public readonly additionalTags!: pulumi.Output<number[]>;
     /**
-     * Book directory.
+     * Destination.
      */
-    public readonly bookDirectory!: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string>;
     /**
      * Enable flag.
      */
     public readonly enable!: pulumi.Output<boolean>;
+    /**
+     * Field tags.
+     */
+    public readonly fieldTags!: pulumi.Output<string[]>;
     /**
      * host.
      */
@@ -85,10 +95,6 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
-     */
-    public readonly olderBookPriority!: pulumi.Output<number>;
-    /**
      * Password.
      */
     public readonly password!: pulumi.Output<string>;
@@ -97,13 +103,13 @@ export class DownloadClientVuze extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
+     * Post import tags.
+     */
+    public readonly postImportTags!: pulumi.Output<string[]>;
+    /**
      * Priority.
      */
     public readonly priority!: pulumi.Output<number>;
-    /**
-     * Recent Music priority. `0` Last, `1` First.
-     */
-    public readonly recentBookPriority!: pulumi.Output<number>;
     /**
      * List of associated tags.
      */
@@ -122,49 +128,49 @@ export class DownloadClientVuze extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientVuze resource with the given unique name, arguments, and options.
+     * Create a DownloadClientFlood resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientVuzeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientVuzeArgs | DownloadClientVuzeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientFloodArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientFloodArgs | DownloadClientFloodState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientVuzeState | undefined;
+            const state = argsOrState as DownloadClientFloodState | undefined;
             resourceInputs["addPaused"] = state ? state.addPaused : undefined;
-            resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
-            resourceInputs["bookDirectory"] = state ? state.bookDirectory : undefined;
+            resourceInputs["additionalTags"] = state ? state.additionalTags : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["fieldTags"] = state ? state.fieldTags : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["olderBookPriority"] = state ? state.olderBookPriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["postImportTags"] = state ? state.postImportTags : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["recentBookPriority"] = state ? state.recentBookPriority : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientVuzeArgs | undefined;
+            const args = argsOrState as DownloadClientFloodArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["addPaused"] = args ? args.addPaused : undefined;
-            resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
-            resourceInputs["bookDirectory"] = args ? args.bookDirectory : undefined;
+            resourceInputs["additionalTags"] = args ? args.additionalTags : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["fieldTags"] = args ? args.fieldTags : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["olderBookPriority"] = args ? args.olderBookPriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["postImportTags"] = args ? args.postImportTags : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["recentBookPriority"] = args ? args.recentBookPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
@@ -173,30 +179,34 @@ export class DownloadClientVuze extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientVuze.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientFlood.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientVuze resources.
+ * Input properties used for looking up and filtering DownloadClientFlood resources.
  */
-export interface DownloadClientVuzeState {
+export interface DownloadClientFloodState {
     /**
      * Add paused flag.
      */
     addPaused?: pulumi.Input<boolean>;
     /**
-     * Book category.
+     * Additional tags, `0` Author, `1` Quality, `2` ReleaseGroup, `3` Year, `4` Indexer.
      */
-    bookCategory?: pulumi.Input<string>;
+    additionalTags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Book directory.
+     * Destination.
      */
-    bookDirectory?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
+    /**
+     * Field tags.
+     */
+    fieldTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * host.
      */
@@ -206,10 +216,6 @@ export interface DownloadClientVuzeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
-     */
-    olderBookPriority?: pulumi.Input<number>;
-    /**
      * Password.
      */
     password?: pulumi.Input<string>;
@@ -218,13 +224,13 @@ export interface DownloadClientVuzeState {
      */
     port?: pulumi.Input<number>;
     /**
+     * Post import tags.
+     */
+    postImportTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Priority.
      */
     priority?: pulumi.Input<number>;
-    /**
-     * Recent Music priority. `0` Last, `1` First.
-     */
-    recentBookPriority?: pulumi.Input<number>;
     /**
      * List of associated tags.
      */
@@ -244,25 +250,29 @@ export interface DownloadClientVuzeState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientVuze resource.
+ * The set of arguments for constructing a DownloadClientFlood resource.
  */
-export interface DownloadClientVuzeArgs {
+export interface DownloadClientFloodArgs {
     /**
      * Add paused flag.
      */
     addPaused?: pulumi.Input<boolean>;
     /**
-     * Book category.
+     * Additional tags, `0` Author, `1` Quality, `2` ReleaseGroup, `3` Year, `4` Indexer.
      */
-    bookCategory?: pulumi.Input<string>;
+    additionalTags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Book directory.
+     * Destination.
      */
-    bookDirectory?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
     enable?: pulumi.Input<boolean>;
+    /**
+     * Field tags.
+     */
+    fieldTags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * host.
      */
@@ -272,10 +282,6 @@ export interface DownloadClientVuzeArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
-     */
-    olderBookPriority?: pulumi.Input<number>;
-    /**
      * Password.
      */
     password?: pulumi.Input<string>;
@@ -284,13 +290,13 @@ export interface DownloadClientVuzeArgs {
      */
     port?: pulumi.Input<number>;
     /**
+     * Post import tags.
+     */
+    postImportTags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Priority.
      */
     priority?: pulumi.Input<number>;
-    /**
-     * Recent Music priority. `0` Last, `1` First.
-     */
-    recentBookPriority?: pulumi.Input<number>;
     /**
      * List of associated tags.
      */

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.RemotePathMapping("example", {
+ * const example = new readarr.downloadclients.RemotePathMapping("example", {
  *     host: "www.transmission.com",
  *     localPath: "/transmission-download/",
  *     remotePath: "/download/",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/remotePathMapping:RemotePathMapping example 10
+ *  $ pulumi import readarr:DownloadClients/remotePathMapping:RemotePathMapping example 10
  * ```
  */
 export class RemotePathMapping extends pulumi.CustomResource {
@@ -44,7 +44,7 @@ export class RemotePathMapping extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/remotePathMapping:RemotePathMapping';
+    public static readonly __pulumiType = 'readarr:DownloadClients/remotePathMapping:RemotePathMapping';
 
     /**
      * Returns true if the given object is an instance of RemotePathMapping.  This is designed to work even

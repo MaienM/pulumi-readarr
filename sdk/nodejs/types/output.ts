@@ -51,7 +51,7 @@ export namespace Authors {
 
 }
 
-export namespace DownloadClient {
+export namespace DownloadClients {
     export interface GetDownloadClientsDownloadClient {
         /**
          * Add paused flag.

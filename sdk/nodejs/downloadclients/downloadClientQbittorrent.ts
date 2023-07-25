@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client uTorrent resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [uTorrent](https://wiki.servarr.com/readarr/supported#utorrent).
+ * <!-- subcategory:Download Clients -->Download Client qBittorrent resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [qBittorrent](https://wiki.servarr.com/readarr/supported#qbittorrent).
  *
  * ## Example Usage
  *
@@ -14,14 +14,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientUtorrent("example", {
+ * const example = new readarr.downloadclients.DownloadClientQbittorrent("example", {
  *     bookCategory: "tv-readarr",
  *     enable: true,
- *     host: "utorrent",
+ *     firstAndLast: true,
+ *     host: "qbittorrent",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/utorrent/",
+ *     urlBase: "/qbittorrent/",
  * });
  * ```
  *
@@ -30,12 +31,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent example 1
  * ```
  */
-export class DownloadClientUtorrent extends pulumi.CustomResource {
+export class DownloadClientQbittorrent extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientUtorrent resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientQbittorrent resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -43,22 +44,22 @@ export class DownloadClientUtorrent extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientUtorrentState, opts?: pulumi.CustomResourceOptions): DownloadClientUtorrent {
-        return new DownloadClientUtorrent(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientQbittorrentState, opts?: pulumi.CustomResourceOptions): DownloadClientQbittorrent {
+        return new DownloadClientQbittorrent(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientUtorrent.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientQbittorrent.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientUtorrent {
+    public static isInstance(obj: any): obj is DownloadClientQbittorrent {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientUtorrent.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientQbittorrent.__pulumiType;
     }
 
     /**
@@ -74,13 +75,17 @@ export class DownloadClientUtorrent extends pulumi.CustomResource {
      */
     public readonly enable!: pulumi.Output<boolean>;
     /**
+     * First and last flag.
+     */
+    public readonly firstAndLast!: pulumi.Output<boolean>;
+    /**
      * host.
      */
     public readonly host!: pulumi.Output<string>;
     /**
-     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause, `3` Stop.
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
      */
-    public readonly intialState!: pulumi.Output<number>;
+    public readonly initialState!: pulumi.Output<number>;
     /**
      * Download Client name.
      */
@@ -106,6 +111,10 @@ export class DownloadClientUtorrent extends pulumi.CustomResource {
      */
     public readonly recentBookPriority!: pulumi.Output<number>;
     /**
+     * Sequential order flag.
+     */
+    public readonly sequentialOrder!: pulumi.Output<boolean>;
+    /**
      * List of associated tags.
      */
     public readonly tags!: pulumi.Output<number[]>;
@@ -123,49 +132,53 @@ export class DownloadClientUtorrent extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientUtorrent resource with the given unique name, arguments, and options.
+     * Create a DownloadClientQbittorrent resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientUtorrentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientUtorrentArgs | DownloadClientUtorrentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientQbittorrentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientQbittorrentArgs | DownloadClientQbittorrentState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientUtorrentState | undefined;
+            const state = argsOrState as DownloadClientQbittorrentState | undefined;
             resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
             resourceInputs["bookImportedCategory"] = state ? state.bookImportedCategory : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["firstAndLast"] = state ? state.firstAndLast : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
-            resourceInputs["intialState"] = state ? state.intialState : undefined;
+            resourceInputs["initialState"] = state ? state.initialState : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["olderBookPriority"] = state ? state.olderBookPriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["recentBookPriority"] = state ? state.recentBookPriority : undefined;
+            resourceInputs["sequentialOrder"] = state ? state.sequentialOrder : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientUtorrentArgs | undefined;
+            const args = argsOrState as DownloadClientQbittorrentArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
             resourceInputs["bookImportedCategory"] = args ? args.bookImportedCategory : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["firstAndLast"] = args ? args.firstAndLast : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["intialState"] = args ? args.intialState : undefined;
+            resourceInputs["initialState"] = args ? args.initialState : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["olderBookPriority"] = args ? args.olderBookPriority : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["recentBookPriority"] = args ? args.recentBookPriority : undefined;
+            resourceInputs["sequentialOrder"] = args ? args.sequentialOrder : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
@@ -174,14 +187,14 @@ export class DownloadClientUtorrent extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientUtorrent.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientQbittorrent.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientUtorrent resources.
+ * Input properties used for looking up and filtering DownloadClientQbittorrent resources.
  */
-export interface DownloadClientUtorrentState {
+export interface DownloadClientQbittorrentState {
     /**
      * Book category.
      */
@@ -195,13 +208,17 @@ export interface DownloadClientUtorrentState {
      */
     enable?: pulumi.Input<boolean>;
     /**
+     * First and last flag.
+     */
+    firstAndLast?: pulumi.Input<boolean>;
+    /**
      * host.
      */
     host?: pulumi.Input<string>;
     /**
-     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause, `3` Stop.
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
      */
-    intialState?: pulumi.Input<number>;
+    initialState?: pulumi.Input<number>;
     /**
      * Download Client name.
      */
@@ -227,6 +244,10 @@ export interface DownloadClientUtorrentState {
      */
     recentBookPriority?: pulumi.Input<number>;
     /**
+     * Sequential order flag.
+     */
+    sequentialOrder?: pulumi.Input<boolean>;
+    /**
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
@@ -245,9 +266,9 @@ export interface DownloadClientUtorrentState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientUtorrent resource.
+ * The set of arguments for constructing a DownloadClientQbittorrent resource.
  */
-export interface DownloadClientUtorrentArgs {
+export interface DownloadClientQbittorrentArgs {
     /**
      * Book category.
      */
@@ -261,13 +282,17 @@ export interface DownloadClientUtorrentArgs {
      */
     enable?: pulumi.Input<boolean>;
     /**
+     * First and last flag.
+     */
+    firstAndLast?: pulumi.Input<boolean>;
+    /**
      * host.
      */
     host?: pulumi.Input<string>;
     /**
-     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause, `3` Stop.
+     * Initial state, with Stop support. `0` Start, `1` ForceStart, `2` Pause.
      */
-    intialState?: pulumi.Input<number>;
+    initialState?: pulumi.Input<number>;
     /**
      * Download Client name.
      */
@@ -292,6 +317,10 @@ export interface DownloadClientUtorrentArgs {
      * Recent Music priority. `0` Last, `1` First.
      */
     recentBookPriority?: pulumi.Input<number>;
+    /**
+     * Sequential order flag.
+     */
+    sequentialOrder?: pulumi.Input<boolean>;
     /**
      * List of associated tags.
      */

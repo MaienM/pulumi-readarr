@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@pulumi/readarr";
  *
- * const test = readarr.DownloadClient.getDownloadClient({
+ * const test = readarr.DownloadClients.getDownloadClient({
  *     name: "Example",
  * });
  * ```
@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
 export function getDownloadClient(args: GetDownloadClientArgs, opts?: pulumi.InvokeOptions): Promise<GetDownloadClientResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
-    return pulumi.runtime.invoke("readarr:DownloadClient/getDownloadClient:getDownloadClient", {
+    return pulumi.runtime.invoke("readarr:DownloadClients/getDownloadClient:getDownloadClient", {
         "name": args.name,
     }, opts);
 }
@@ -218,7 +218,7 @@ export interface GetDownloadClientResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@pulumi/readarr";
  *
- * const test = readarr.DownloadClient.getDownloadClient({
+ * const test = readarr.DownloadClients.getDownloadClient({
  *     name: "Example",
  * });
  * ```

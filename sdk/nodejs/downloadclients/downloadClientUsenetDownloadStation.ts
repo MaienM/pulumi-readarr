@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Transmission resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Transmission](https://wiki.servarr.com/readarr/supported#transmission).
+ * <!-- subcategory:Download Clients -->Download Client UsenetDownloadStation resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [UsenetDownloadStation](https://wiki.servarr.com/readarr/supported#usenetdownloadstation).
  *
  * ## Example Usage
  *
@@ -14,13 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientTransmission("example", {
+ * const example = new readarr.downloadclients.DownloadClientUsenetDownloadStation("example", {
  *     enable: true,
- *     host: "transmission",
+ *     host: "downloadstation",
  *     name: "Example",
- *     port: 9091,
+ *     port: 5000,
  *     priority: 1,
- *     urlBase: "/transmission/",
  * });
  * ```
  *
@@ -29,12 +28,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientTransmission:DownloadClientTransmission example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation example 1
  * ```
  */
-export class DownloadClientTransmission extends pulumi.CustomResource {
+export class DownloadClientUsenetDownloadStation extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientTransmission resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientUsenetDownloadStation resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,28 +41,24 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions): DownloadClientTransmission {
-        return new DownloadClientTransmission(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientUsenetDownloadStationState, opts?: pulumi.CustomResourceOptions): DownloadClientUsenetDownloadStation {
+        return new DownloadClientUsenetDownloadStation(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientTransmission:DownloadClientTransmission';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientTransmission.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientUsenetDownloadStation.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientTransmission {
+    public static isInstance(obj: any): obj is DownloadClientUsenetDownloadStation {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientTransmission.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientUsenetDownloadStation.__pulumiType;
     }
 
-    /**
-     * Add paused flag.
-     */
-    public readonly addPaused!: pulumi.Output<boolean>;
     /**
      * Book category.
      */
@@ -85,10 +80,6 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Older TV priority. `0` Last, `1` First.
-     */
-    public readonly olderBookPriority!: pulumi.Output<number>;
-    /**
      * Password.
      */
     public readonly password!: pulumi.Output<string>;
@@ -101,17 +92,9 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Recent TV priority. `0` Last, `1` First.
-     */
-    public readonly recentBookPriority!: pulumi.Output<number>;
-    /**
      * List of associated tags.
      */
     public readonly tags!: pulumi.Output<number[]>;
-    /**
-     * Base URL.
-     */
-    public readonly urlBase!: pulumi.Output<string>;
     /**
      * Use SSL flag.
      */
@@ -122,67 +105,57 @@ export class DownloadClientTransmission extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientTransmission resource with the given unique name, arguments, and options.
+     * Create a DownloadClientUsenetDownloadStation resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientTransmissionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientTransmissionArgs | DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientUsenetDownloadStationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientUsenetDownloadStationArgs | DownloadClientUsenetDownloadStationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientTransmissionState | undefined;
-            resourceInputs["addPaused"] = state ? state.addPaused : undefined;
+            const state = argsOrState as DownloadClientUsenetDownloadStationState | undefined;
             resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
             resourceInputs["bookDirectory"] = state ? state.bookDirectory : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
-            resourceInputs["olderBookPriority"] = state ? state.olderBookPriority : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
-            resourceInputs["recentBookPriority"] = state ? state.recentBookPriority : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientTransmissionArgs | undefined;
+            const args = argsOrState as DownloadClientUsenetDownloadStationArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["addPaused"] = args ? args.addPaused : undefined;
             resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
             resourceInputs["bookDirectory"] = args ? args.bookDirectory : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["olderBookPriority"] = args ? args.olderBookPriority : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["recentBookPriority"] = args ? args.recentBookPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DownloadClientTransmission.__pulumiType, name, resourceInputs, opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
+        super(DownloadClientUsenetDownloadStation.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientTransmission resources.
+ * Input properties used for looking up and filtering DownloadClientUsenetDownloadStation resources.
  */
-export interface DownloadClientTransmissionState {
-    /**
-     * Add paused flag.
-     */
-    addPaused?: pulumi.Input<boolean>;
+export interface DownloadClientUsenetDownloadStationState {
     /**
      * Book category.
      */
@@ -204,10 +177,6 @@ export interface DownloadClientTransmissionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Older TV priority. `0` Last, `1` First.
-     */
-    olderBookPriority?: pulumi.Input<number>;
-    /**
      * Password.
      */
     password?: pulumi.Input<string>;
@@ -220,17 +189,9 @@ export interface DownloadClientTransmissionState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent TV priority. `0` Last, `1` First.
-     */
-    recentBookPriority?: pulumi.Input<number>;
-    /**
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * Base URL.
-     */
-    urlBase?: pulumi.Input<string>;
     /**
      * Use SSL flag.
      */
@@ -242,13 +203,9 @@ export interface DownloadClientTransmissionState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientTransmission resource.
+ * The set of arguments for constructing a DownloadClientUsenetDownloadStation resource.
  */
-export interface DownloadClientTransmissionArgs {
-    /**
-     * Add paused flag.
-     */
-    addPaused?: pulumi.Input<boolean>;
+export interface DownloadClientUsenetDownloadStationArgs {
     /**
      * Book category.
      */
@@ -270,10 +227,6 @@ export interface DownloadClientTransmissionArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Older TV priority. `0` Last, `1` First.
-     */
-    olderBookPriority?: pulumi.Input<number>;
-    /**
      * Password.
      */
     password?: pulumi.Input<string>;
@@ -286,17 +239,9 @@ export interface DownloadClientTransmissionArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent TV priority. `0` Last, `1` First.
-     */
-    recentBookPriority?: pulumi.Input<number>;
-    /**
      * List of associated tags.
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
-    /**
-     * Base URL.
-     */
-    urlBase?: pulumi.Input<string>;
     /**
      * Use SSL flag.
      */

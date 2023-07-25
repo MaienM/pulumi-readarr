@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientConfig("example", {
+ * const example = new readarr.downloadclients.DownloadClientConfig("example", {
  *     autoRedownloadFailed: false,
  *     enableCompletedDownloadHandling: true,
  *     removeCompletedDownloads: false,
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * import does not need parameters
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientConfig:DownloadClientConfig example
+ *  $ pulumi import readarr:DownloadClients/downloadClientConfig:DownloadClientConfig example
  * ```
  */
 export class DownloadClientConfig extends pulumi.CustomResource {
@@ -45,7 +45,7 @@ export class DownloadClientConfig extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientConfig:DownloadClientConfig';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientConfig:DownloadClientConfig';
 
     /**
      * Returns true if the given object is an instance of DownloadClientConfig.  This is designed to work even

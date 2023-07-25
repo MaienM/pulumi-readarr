@@ -2,26 +2,26 @@
     "renames": {
         "resources": {
             "readarr:Authors/author:Author": "readarr_author",
-            "readarr:DownloadClient/downloadClient:DownloadClient": "readarr_download_client",
-            "readarr:DownloadClient/downloadClientAria2:DownloadClientAria2": "readarr_download_client_aria2",
-            "readarr:DownloadClient/downloadClientConfig:DownloadClientConfig": "readarr_download_client_config",
-            "readarr:DownloadClient/downloadClientDeluge:DownloadClientDeluge": "readarr_download_client_deluge",
-            "readarr:DownloadClient/downloadClientFlood:DownloadClientFlood": "readarr_download_client_flood",
-            "readarr:DownloadClient/downloadClientHadouken:DownloadClientHadouken": "readarr_download_client_hadouken",
-            "readarr:DownloadClient/downloadClientNzbget:DownloadClientNzbget": "readarr_download_client_nzbget",
-            "readarr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex": "readarr_download_client_nzbvortex",
-            "readarr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic": "readarr_download_client_pneumatic",
-            "readarr:DownloadClient/downloadClientQbittorrent:DownloadClientQbittorrent": "readarr_download_client_qbittorrent",
-            "readarr:DownloadClient/downloadClientRtorrent:DownloadClientRtorrent": "readarr_download_client_rtorrent",
-            "readarr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd": "readarr_download_client_sabnzbd",
-            "readarr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": "readarr_download_client_torrent_blackhole",
-            "readarr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": "readarr_download_client_torrent_download_station",
-            "readarr:DownloadClient/downloadClientTransmission:DownloadClientTransmission": "readarr_download_client_transmission",
-            "readarr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": "readarr_download_client_usenet_blackhole",
-            "readarr:DownloadClient/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": "readarr_download_client_usenet_download_station",
-            "readarr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent": "readarr_download_client_utorrent",
-            "readarr:DownloadClient/downloadClientVuze:DownloadClientVuze": "readarr_download_client_vuze",
-            "readarr:DownloadClient/remotePathMapping:RemotePathMapping": "readarr_remote_path_mapping",
+            "readarr:DownloadClients/downloadClient:DownloadClient": "readarr_download_client",
+            "readarr:DownloadClients/downloadClientAria2:DownloadClientAria2": "readarr_download_client_aria2",
+            "readarr:DownloadClients/downloadClientConfig:DownloadClientConfig": "readarr_download_client_config",
+            "readarr:DownloadClients/downloadClientDeluge:DownloadClientDeluge": "readarr_download_client_deluge",
+            "readarr:DownloadClients/downloadClientFlood:DownloadClientFlood": "readarr_download_client_flood",
+            "readarr:DownloadClients/downloadClientHadouken:DownloadClientHadouken": "readarr_download_client_hadouken",
+            "readarr:DownloadClients/downloadClientNzbget:DownloadClientNzbget": "readarr_download_client_nzbget",
+            "readarr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex": "readarr_download_client_nzbvortex",
+            "readarr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic": "readarr_download_client_pneumatic",
+            "readarr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent": "readarr_download_client_qbittorrent",
+            "readarr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent": "readarr_download_client_rtorrent",
+            "readarr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd": "readarr_download_client_sabnzbd",
+            "readarr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": "readarr_download_client_torrent_blackhole",
+            "readarr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": "readarr_download_client_torrent_download_station",
+            "readarr:DownloadClients/downloadClientTransmission:DownloadClientTransmission": "readarr_download_client_transmission",
+            "readarr:DownloadClients/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": "readarr_download_client_usenet_blackhole",
+            "readarr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": "readarr_download_client_usenet_download_station",
+            "readarr:DownloadClients/downloadClientUtorrent:DownloadClientUtorrent": "readarr_download_client_utorrent",
+            "readarr:DownloadClients/downloadClientVuze:DownloadClientVuze": "readarr_download_client_vuze",
+            "readarr:DownloadClients/remotePathMapping:RemotePathMapping": "readarr_remote_path_mapping",
             "readarr:ImportLists/importList:ImportList": "readarr_import_list",
             "readarr:ImportLists/importListExclusion:ImportListExclusion": "readarr_import_list_exclusion",
             "readarr:ImportLists/importListGoodreadsBookshelf:ImportListGoodreadsBookshelf": "readarr_import_list_goodreads_bookshelf",
@@ -78,11 +78,11 @@
         "functions": {
             "readarr:Authors/getAuthor:getAuthor": "readarr_author",
             "readarr:Authors/getAuthors:getAuthors": "readarr_authors",
-            "readarr:DownloadClient/getDownloadClient:getDownloadClient": "readarr_download_client",
-            "readarr:DownloadClient/getDownloadClientConfig:getDownloadClientConfig": "readarr_download_client_config",
-            "readarr:DownloadClient/getDownloadClients:getDownloadClients": "readarr_download_clients",
-            "readarr:DownloadClient/getRemotePathMapping:getRemotePathMapping": "readarr_remote_path_mapping",
-            "readarr:DownloadClient/getRemotePathMappings:getRemotePathMappings": "readarr_remote_path_mappings",
+            "readarr:DownloadClients/getDownloadClient:getDownloadClient": "readarr_download_client",
+            "readarr:DownloadClients/getDownloadClientConfig:getDownloadClientConfig": "readarr_download_client_config",
+            "readarr:DownloadClients/getDownloadClients:getDownloadClients": "readarr_download_clients",
+            "readarr:DownloadClients/getRemotePathMapping:getRemotePathMapping": "readarr_remote_path_mapping",
+            "readarr:DownloadClients/getRemotePathMappings:getRemotePathMappings": "readarr_remote_path_mappings",
             "readarr:ImportLists/getImportList:getImportList": "readarr_import_list",
             "readarr:ImportLists/getImportListExclusion:getImportListExclusion": "readarr_import_list_exclusion",
             "readarr:ImportLists/getImportListExclusions:getImportListExclusions": "readarr_import_list_exclusions",
@@ -134,7 +134,7 @@
                 "foreignAuthorId": "foreign_author_id",
                 "qualityProfileId": "quality_profile_id"
             },
-            "readarr:DownloadClient/downloadClient:DownloadClient": {
+            "readarr:DownloadClients/downloadClient:DownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -164,19 +164,19 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "readarr:DownloadClient/downloadClientAria2:DownloadClientAria2": {
+            "readarr:DownloadClients/downloadClientAria2:DownloadClientAria2": {
                 "rpcPath": "rpc_path",
                 "secretToken": "secret_token",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientConfig:DownloadClientConfig": {
+            "readarr:DownloadClients/downloadClientConfig:DownloadClientConfig": {
                 "autoRedownloadFailed": "auto_redownload_failed",
                 "downloadClientWorkingFolders": "download_client_working_folders",
                 "enableCompletedDownloadHandling": "enable_completed_download_handling",
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads"
             },
-            "readarr:DownloadClient/downloadClientDeluge:DownloadClientDeluge": {
+            "readarr:DownloadClients/downloadClientDeluge:DownloadClientDeluge": {
                 "addPaused": "add_paused",
                 "bookCategory": "book_category",
                 "bookImportedCategory": "book_imported_category",
@@ -185,7 +185,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientFlood:DownloadClientFlood": {
+            "readarr:DownloadClients/downloadClientFlood:DownloadClientFlood": {
                 "addPaused": "add_paused",
                 "additionalTags": "additional_tags",
                 "fieldTags": "field_tags",
@@ -193,11 +193,11 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientHadouken:DownloadClientHadouken": {
+            "readarr:DownloadClients/downloadClientHadouken:DownloadClientHadouken": {
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientNzbget:DownloadClientNzbget": {
+            "readarr:DownloadClients/downloadClientNzbget:DownloadClientNzbget": {
                 "addPaused": "add_paused",
                 "bookCategory": "book_category",
                 "olderBookPriority": "older_book_priority",
@@ -205,18 +205,18 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientNzbvortex:DownloadClientNzbvortex": {
+            "readarr:DownloadClients/downloadClientNzbvortex:DownloadClientNzbvortex": {
                 "apiKey": "api_key",
                 "bookCategory": "book_category",
                 "olderBookPriority": "older_book_priority",
                 "recentBookPriority": "recent_book_priority",
                 "urlBase": "url_base"
             },
-            "readarr:DownloadClient/downloadClientPneumatic:DownloadClientPneumatic": {
+            "readarr:DownloadClients/downloadClientPneumatic:DownloadClientPneumatic": {
                 "nzbFolder": "nzb_folder",
                 "strmFolder": "strm_folder"
             },
-            "readarr:DownloadClient/downloadClientQbittorrent:DownloadClientQbittorrent": {
+            "readarr:DownloadClients/downloadClientQbittorrent:DownloadClientQbittorrent": {
                 "bookCategory": "book_category",
                 "bookImportedCategory": "book_imported_category",
                 "firstAndLast": "first_and_last",
@@ -227,7 +227,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientRtorrent:DownloadClientRtorrent": {
+            "readarr:DownloadClients/downloadClientRtorrent:DownloadClientRtorrent": {
                 "addStopped": "add_stopped",
                 "bookCategory": "book_category",
                 "bookDirectory": "book_directory",
@@ -237,7 +237,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd": {
+            "readarr:DownloadClients/downloadClientSabnzbd:DownloadClientSabnzbd": {
                 "apiKey": "api_key",
                 "bookCategory": "book_category",
                 "olderBookPriority": "older_book_priority",
@@ -245,19 +245,19 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": {
+            "readarr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole": {
                 "magnetFileExtension": "magnet_file_extension",
                 "readOnly": "read_only",
                 "saveMagnetFiles": "save_magnet_files",
                 "torrentFolder": "torrent_folder",
                 "watchFolder": "watch_folder"
             },
-            "readarr:DownloadClient/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": {
+            "readarr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation": {
                 "bookCategory": "book_category",
                 "bookDirectory": "book_directory",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientTransmission:DownloadClientTransmission": {
+            "readarr:DownloadClients/downloadClientTransmission:DownloadClientTransmission": {
                 "addPaused": "add_paused",
                 "bookCategory": "book_category",
                 "bookDirectory": "book_directory",
@@ -266,16 +266,16 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": {
+            "readarr:DownloadClients/downloadClientUsenetBlackhole:DownloadClientUsenetBlackhole": {
                 "nzbFolder": "nzb_folder",
                 "watchFolder": "watch_folder"
             },
-            "readarr:DownloadClient/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": {
+            "readarr:DownloadClients/downloadClientUsenetDownloadStation:DownloadClientUsenetDownloadStation": {
                 "bookCategory": "book_category",
                 "bookDirectory": "book_directory",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientUtorrent:DownloadClientUtorrent": {
+            "readarr:DownloadClients/downloadClientUtorrent:DownloadClientUtorrent": {
                 "bookCategory": "book_category",
                 "bookImportedCategory": "book_imported_category",
                 "intialState": "intial_state",
@@ -284,7 +284,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/downloadClientVuze:DownloadClientVuze": {
+            "readarr:DownloadClients/downloadClientVuze:DownloadClientVuze": {
                 "addPaused": "add_paused",
                 "bookCategory": "book_category",
                 "bookDirectory": "book_directory",
@@ -293,7 +293,7 @@
                 "urlBase": "url_base",
                 "useSsl": "use_ssl"
             },
-            "readarr:DownloadClient/getDownloadClient:getDownloadClient": {
+            "readarr:DownloadClients/getDownloadClient:getDownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -323,17 +323,17 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "readarr:DownloadClient/getDownloadClientConfig:getDownloadClientConfig": {
+            "readarr:DownloadClients/getDownloadClientConfig:getDownloadClientConfig": {
                 "autoRedownloadFailed": "auto_redownload_failed",
                 "downloadClientWorkingFolders": "download_client_working_folders",
                 "enableCompletedDownloadHandling": "enable_completed_download_handling",
                 "removeCompletedDownloads": "remove_completed_downloads",
                 "removeFailedDownloads": "remove_failed_downloads"
             },
-            "readarr:DownloadClient/getDownloadClients:getDownloadClients": {
+            "readarr:DownloadClients/getDownloadClients:getDownloadClients": {
                 "downloadClients": "download_clients"
             },
-            "readarr:DownloadClient/getDownloadClientsDownloadClient:getDownloadClientsDownloadClient": {
+            "readarr:DownloadClients/getDownloadClientsDownloadClient:getDownloadClientsDownloadClient": {
                 "addPaused": "add_paused",
                 "addStopped": "add_stopped",
                 "additionalTags": "additional_tags",
@@ -363,18 +363,18 @@
                 "useSsl": "use_ssl",
                 "watchFolder": "watch_folder"
             },
-            "readarr:DownloadClient/getRemotePathMapping:getRemotePathMapping": {
+            "readarr:DownloadClients/getRemotePathMapping:getRemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },
-            "readarr:DownloadClient/getRemotePathMappings:getRemotePathMappings": {
+            "readarr:DownloadClients/getRemotePathMappings:getRemotePathMappings": {
                 "remotePathMappings": "remote_path_mappings"
             },
-            "readarr:DownloadClient/getRemotePathMappingsRemotePathMapping:getRemotePathMappingsRemotePathMapping": {
+            "readarr:DownloadClients/getRemotePathMappingsRemotePathMapping:getRemotePathMappingsRemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },
-            "readarr:DownloadClient/remotePathMapping:RemotePathMapping": {
+            "readarr:DownloadClients/remotePathMapping:RemotePathMapping": {
                 "localPath": "local_path",
                 "remotePath": "remote_path"
             },

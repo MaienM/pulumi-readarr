@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Sabnzbd resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Sabnzbd](https://wiki.servarr.com/readarr/supported#sabnzbd).
+ * <!-- subcategory:Download Clients -->Download Client Deluge resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Deluge](https://wiki.servarr.com/readarr/supported#deluge).
  *
  * ## Example Usage
  *
@@ -14,14 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientSabnzbd("example", {
- *     apiKey: "example",
+ * const example = new readarr.downloadclients.DownloadClientDeluge("example", {
  *     enable: true,
- *     host: "sabnzbd",
+ *     host: "deluge",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/sabnzbd/",
+ *     urlBase: "/deluge/",
  * });
  * ```
  *
@@ -30,12 +29,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientDeluge:DownloadClientDeluge example 1
  * ```
  */
-export class DownloadClientSabnzbd extends pulumi.CustomResource {
+export class DownloadClientDeluge extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientSabnzbd resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientDeluge resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -43,32 +42,36 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientSabnzbdState, opts?: pulumi.CustomResourceOptions): DownloadClientSabnzbd {
-        return new DownloadClientSabnzbd(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions): DownloadClientDeluge {
+        return new DownloadClientDeluge(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientSabnzbd:DownloadClientSabnzbd';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientDeluge:DownloadClientDeluge';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientSabnzbd.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientDeluge.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientSabnzbd {
+    public static isInstance(obj: any): obj is DownloadClientDeluge {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientSabnzbd.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientDeluge.__pulumiType;
     }
 
     /**
-     * API key.
+     * Add paused flag.
      */
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly addPaused!: pulumi.Output<boolean>;
     /**
      * Book category.
      */
     public readonly bookCategory!: pulumi.Output<string>;
+    /**
+     * Book imported category.
+     */
+    public readonly bookImportedCategory!: pulumi.Output<string>;
     /**
      * Enable flag.
      */
@@ -82,7 +85,7 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Older Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Older Music priority. `0` Last, `1` First.
      */
     public readonly olderBookPriority!: pulumi.Output<number>;
     /**
@@ -98,7 +101,7 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Recent Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Recent Music priority. `0` Last, `1` First.
      */
     public readonly recentBookPriority!: pulumi.Output<number>;
     /**
@@ -113,26 +116,23 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
-    /**
-     * Username.
-     */
-    public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientSabnzbd resource with the given unique name, arguments, and options.
+     * Create a DownloadClientDeluge resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientSabnzbdArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientSabnzbdArgs | DownloadClientSabnzbdState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientDelugeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientDelugeArgs | DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientSabnzbdState | undefined;
-            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            const state = argsOrState as DownloadClientDelugeState | undefined;
+            resourceInputs["addPaused"] = state ? state.addPaused : undefined;
             resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
+            resourceInputs["bookImportedCategory"] = state ? state.bookImportedCategory : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -144,14 +144,14 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
-            resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientSabnzbdArgs | undefined;
+            const args = argsOrState as DownloadClientDelugeArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["apiKey"] = args?.apiKey ? pulumi.secret(args.apiKey) : undefined;
+            resourceInputs["addPaused"] = args ? args.addPaused : undefined;
             resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
+            resourceInputs["bookImportedCategory"] = args ? args.bookImportedCategory : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -163,27 +163,30 @@ export class DownloadClientSabnzbd extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["apiKey", "password"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientSabnzbd.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientDeluge.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientSabnzbd resources.
+ * Input properties used for looking up and filtering DownloadClientDeluge resources.
  */
-export interface DownloadClientSabnzbdState {
+export interface DownloadClientDelugeState {
     /**
-     * API key.
+     * Add paused flag.
      */
-    apiKey?: pulumi.Input<string>;
+    addPaused?: pulumi.Input<boolean>;
     /**
      * Book category.
      */
     bookCategory?: pulumi.Input<string>;
+    /**
+     * Book imported category.
+     */
+    bookImportedCategory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -197,7 +200,7 @@ export interface DownloadClientSabnzbdState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Older Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Older Music priority. `0` Last, `1` First.
      */
     olderBookPriority?: pulumi.Input<number>;
     /**
@@ -213,7 +216,7 @@ export interface DownloadClientSabnzbdState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Recent Music priority. `0` Last, `1` First.
      */
     recentBookPriority?: pulumi.Input<number>;
     /**
@@ -228,24 +231,24 @@ export interface DownloadClientSabnzbdState {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
-    /**
-     * Username.
-     */
-    username?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a DownloadClientSabnzbd resource.
+ * The set of arguments for constructing a DownloadClientDeluge resource.
  */
-export interface DownloadClientSabnzbdArgs {
+export interface DownloadClientDelugeArgs {
     /**
-     * API key.
+     * Add paused flag.
      */
-    apiKey?: pulumi.Input<string>;
+    addPaused?: pulumi.Input<boolean>;
     /**
      * Book category.
      */
     bookCategory?: pulumi.Input<string>;
+    /**
+     * Book imported category.
+     */
+    bookImportedCategory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -259,7 +262,7 @@ export interface DownloadClientSabnzbdArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Older Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Older Music priority. `0` Last, `1` First.
      */
     olderBookPriority?: pulumi.Input<number>;
     /**
@@ -275,7 +278,7 @@ export interface DownloadClientSabnzbdArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Music priority. `-100` Default, `-2` Paused, `-1` Low, `0` Normal, `1` High, `2` Force.
+     * Recent Music priority. `0` Last, `1` First.
      */
     recentBookPriority?: pulumi.Input<number>;
     /**
@@ -290,8 +293,4 @@ export interface DownloadClientSabnzbdArgs {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
-    /**
-     * Username.
-     */
-    username?: pulumi.Input<string>;
 }

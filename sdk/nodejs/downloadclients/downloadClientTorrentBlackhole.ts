@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientTorrentBlackhole("example", {
+ * const example = new readarr.downloadclients.DownloadClientTorrentBlackhole("example", {
  *     enable: true,
  *     magnetFileExtension: ".magnet",
  *     name: "Example",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole example 1
  * ```
  */
 export class DownloadClientTorrentBlackhole extends pulumi.CustomResource {
@@ -47,7 +47,7 @@ export class DownloadClientTorrentBlackhole extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientTorrentBlackhole:DownloadClientTorrentBlackhole';
 
     /**
      * Returns true if the given object is an instance of DownloadClientTorrentBlackhole.  This is designed to work even

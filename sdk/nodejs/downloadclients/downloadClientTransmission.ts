@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Deluge resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Deluge](https://wiki.servarr.com/readarr/supported#deluge).
+ * <!-- subcategory:Download Clients -->Download Client Transmission resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Transmission](https://wiki.servarr.com/readarr/supported#transmission).
  *
  * ## Example Usage
  *
@@ -14,13 +14,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientDeluge("example", {
+ * const example = new readarr.downloadclients.DownloadClientTransmission("example", {
  *     enable: true,
- *     host: "deluge",
+ *     host: "transmission",
  *     name: "Example",
  *     port: 9091,
  *     priority: 1,
- *     urlBase: "/deluge/",
+ *     urlBase: "/transmission/",
  * });
  * ```
  *
@@ -29,12 +29,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientDeluge:DownloadClientDeluge example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientTransmission:DownloadClientTransmission example 1
  * ```
  */
-export class DownloadClientDeluge extends pulumi.CustomResource {
+export class DownloadClientTransmission extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientDeluge resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientTransmission resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -42,22 +42,22 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions): DownloadClientDeluge {
-        return new DownloadClientDeluge(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions): DownloadClientTransmission {
+        return new DownloadClientTransmission(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientDeluge:DownloadClientDeluge';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientTransmission:DownloadClientTransmission';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientDeluge.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientTransmission.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientDeluge {
+    public static isInstance(obj: any): obj is DownloadClientTransmission {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientDeluge.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientTransmission.__pulumiType;
     }
 
     /**
@@ -69,9 +69,9 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      */
     public readonly bookCategory!: pulumi.Output<string>;
     /**
-     * Book imported category.
+     * Book directory.
      */
-    public readonly bookImportedCategory!: pulumi.Output<string>;
+    public readonly bookDirectory!: pulumi.Output<string>;
     /**
      * Enable flag.
      */
@@ -85,7 +85,7 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
+     * Older TV priority. `0` Last, `1` First.
      */
     public readonly olderBookPriority!: pulumi.Output<number>;
     /**
@@ -101,7 +101,7 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * Recent Music priority. `0` Last, `1` First.
+     * Recent TV priority. `0` Last, `1` First.
      */
     public readonly recentBookPriority!: pulumi.Output<number>;
     /**
@@ -116,23 +116,27 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
+    /**
+     * Username.
+     */
+    public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientDeluge resource with the given unique name, arguments, and options.
+     * Create a DownloadClientTransmission resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientDelugeArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientDelugeArgs | DownloadClientDelugeState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientTransmissionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientTransmissionArgs | DownloadClientTransmissionState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientDelugeState | undefined;
+            const state = argsOrState as DownloadClientTransmissionState | undefined;
             resourceInputs["addPaused"] = state ? state.addPaused : undefined;
             resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
-            resourceInputs["bookImportedCategory"] = state ? state.bookImportedCategory : undefined;
+            resourceInputs["bookDirectory"] = state ? state.bookDirectory : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -144,37 +148,37 @@ export class DownloadClientDeluge extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientDelugeArgs | undefined;
+            const args = argsOrState as DownloadClientTransmissionArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["addPaused"] = args ? args.addPaused : undefined;
             resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
-            resourceInputs["bookImportedCategory"] = args ? args.bookImportedCategory : undefined;
+            resourceInputs["bookDirectory"] = args ? args.bookDirectory : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["olderBookPriority"] = args ? args.olderBookPriority : undefined;
-            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["recentBookPriority"] = args ? args.recentBookPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password"] };
-        opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientDeluge.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientTransmission.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientDeluge resources.
+ * Input properties used for looking up and filtering DownloadClientTransmission resources.
  */
-export interface DownloadClientDelugeState {
+export interface DownloadClientTransmissionState {
     /**
      * Add paused flag.
      */
@@ -184,9 +188,9 @@ export interface DownloadClientDelugeState {
      */
     bookCategory?: pulumi.Input<string>;
     /**
-     * Book imported category.
+     * Book directory.
      */
-    bookImportedCategory?: pulumi.Input<string>;
+    bookDirectory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -200,7 +204,7 @@ export interface DownloadClientDelugeState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
+     * Older TV priority. `0` Last, `1` First.
      */
     olderBookPriority?: pulumi.Input<number>;
     /**
@@ -216,7 +220,7 @@ export interface DownloadClientDelugeState {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Music priority. `0` Last, `1` First.
+     * Recent TV priority. `0` Last, `1` First.
      */
     recentBookPriority?: pulumi.Input<number>;
     /**
@@ -231,12 +235,16 @@ export interface DownloadClientDelugeState {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a DownloadClientDeluge resource.
+ * The set of arguments for constructing a DownloadClientTransmission resource.
  */
-export interface DownloadClientDelugeArgs {
+export interface DownloadClientTransmissionArgs {
     /**
      * Add paused flag.
      */
@@ -246,9 +254,9 @@ export interface DownloadClientDelugeArgs {
      */
     bookCategory?: pulumi.Input<string>;
     /**
-     * Book imported category.
+     * Book directory.
      */
-    bookImportedCategory?: pulumi.Input<string>;
+    bookDirectory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -262,7 +270,7 @@ export interface DownloadClientDelugeArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Older Music priority. `0` Last, `1` First.
+     * Older TV priority. `0` Last, `1` First.
      */
     olderBookPriority?: pulumi.Input<number>;
     /**
@@ -278,7 +286,7 @@ export interface DownloadClientDelugeArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Recent Music priority. `0` Last, `1` First.
+     * Recent TV priority. `0` Last, `1` First.
      */
     recentBookPriority?: pulumi.Input<number>;
     /**
@@ -293,4 +301,8 @@ export interface DownloadClientDelugeArgs {
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
+    /**
+     * Username.
+     */
+    username?: pulumi.Input<string>;
 }

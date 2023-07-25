@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * <!-- subcategory:Download Clients -->Download Client Hadouken resource.
- * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [Hadouken](https://wiki.servarr.com/readarr/supported#hadouken).
+ * <!-- subcategory:Download Clients -->Download Client TorrentDownloadStation resource.
+ * For more information refer to [Download Client](https://wiki.servarr.com/readarr/settings#download-clients) and [TorrentDownloadStation](https://wiki.servarr.com/readarr/supported#torrentdownloadstation).
  *
  * ## Example Usage
  *
@@ -14,15 +14,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as readarr from "@maienm/pulumi-readarr";
  *
- * const example = new readarr.downloadclient.DownloadClientHadouken("example", {
+ * const example = new readarr.downloadclients.DownloadClientTorrentDownloadStation("example", {
  *     enable: true,
- *     host: "hadouken",
+ *     host: "downloadstation",
  *     name: "Example",
- *     password: "password",
- *     port: 9091,
+ *     port: 5000,
  *     priority: 1,
- *     urlBase: "/hadouken/",
- *     username: "username",
  * });
  * ```
  *
@@ -31,12 +28,12 @@ import * as utilities from "../utilities";
  * import using the API/UI ID
  *
  * ```sh
- *  $ pulumi import readarr:DownloadClient/downloadClientHadouken:DownloadClientHadouken example 1
+ *  $ pulumi import readarr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation example 1
  * ```
  */
-export class DownloadClientHadouken extends pulumi.CustomResource {
+export class DownloadClientTorrentDownloadStation extends pulumi.CustomResource {
     /**
-     * Get an existing DownloadClientHadouken resource's state with the given name, ID, and optional extra
+     * Get an existing DownloadClientTorrentDownloadStation resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
@@ -44,28 +41,32 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientHadoukenState, opts?: pulumi.CustomResourceOptions): DownloadClientHadouken {
-        return new DownloadClientHadouken(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions): DownloadClientTorrentDownloadStation {
+        return new DownloadClientTorrentDownloadStation(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'readarr:DownloadClient/downloadClientHadouken:DownloadClientHadouken';
+    public static readonly __pulumiType = 'readarr:DownloadClients/downloadClientTorrentDownloadStation:DownloadClientTorrentDownloadStation';
 
     /**
-     * Returns true if the given object is an instance of DownloadClientHadouken.  This is designed to work even
+     * Returns true if the given object is an instance of DownloadClientTorrentDownloadStation.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is DownloadClientHadouken {
+    public static isInstance(obj: any): obj is DownloadClientTorrentDownloadStation {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === DownloadClientHadouken.__pulumiType;
+        return obj['__pulumiType'] === DownloadClientTorrentDownloadStation.__pulumiType;
     }
 
     /**
-     * Category.
+     * Book category.
      */
-    public readonly category!: pulumi.Output<string>;
+    public readonly bookCategory!: pulumi.Output<string>;
+    /**
+     * Book directory.
+     */
+    public readonly bookDirectory!: pulumi.Output<string>;
     /**
      * Enable flag.
      */
@@ -95,10 +96,6 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<number[]>;
     /**
-     * Base URL.
-     */
-    public readonly urlBase!: pulumi.Output<string>;
-    /**
      * Use SSL flag.
      */
     public readonly useSsl!: pulumi.Output<boolean>;
@@ -108,19 +105,20 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
     public readonly username!: pulumi.Output<string>;
 
     /**
-     * Create a DownloadClientHadouken resource with the given unique name, arguments, and options.
+     * Create a DownloadClientTorrentDownloadStation resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DownloadClientHadoukenArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DownloadClientHadoukenArgs | DownloadClientHadoukenState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DownloadClientTorrentDownloadStationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DownloadClientTorrentDownloadStationArgs | DownloadClientTorrentDownloadStationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
-            const state = argsOrState as DownloadClientHadoukenState | undefined;
-            resourceInputs["category"] = state ? state.category : undefined;
+            const state = argsOrState as DownloadClientTorrentDownloadStationState | undefined;
+            resourceInputs["bookCategory"] = state ? state.bookCategory : undefined;
+            resourceInputs["bookDirectory"] = state ? state.bookDirectory : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -128,21 +126,15 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
-            resourceInputs["urlBase"] = state ? state.urlBase : undefined;
             resourceInputs["useSsl"] = state ? state.useSsl : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
-            const args = argsOrState as DownloadClientHadoukenArgs | undefined;
+            const args = argsOrState as DownloadClientTorrentDownloadStationArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
-            resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["bookCategory"] = args ? args.bookCategory : undefined;
+            resourceInputs["bookDirectory"] = args ? args.bookDirectory : undefined;
             resourceInputs["enable"] = args ? args.enable : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -150,25 +142,28 @@ export class DownloadClientHadouken extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["urlBase"] = args ? args.urlBase : undefined;
             resourceInputs["useSsl"] = args ? args.useSsl : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DownloadClientHadouken.__pulumiType, name, resourceInputs, opts);
+        super(DownloadClientTorrentDownloadStation.__pulumiType, name, resourceInputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering DownloadClientHadouken resources.
+ * Input properties used for looking up and filtering DownloadClientTorrentDownloadStation resources.
  */
-export interface DownloadClientHadoukenState {
+export interface DownloadClientTorrentDownloadStationState {
     /**
-     * Category.
+     * Book category.
      */
-    category?: pulumi.Input<string>;
+    bookCategory?: pulumi.Input<string>;
+    /**
+     * Book directory.
+     */
+    bookDirectory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -198,10 +193,6 @@ export interface DownloadClientHadoukenState {
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Base URL.
-     */
-    urlBase?: pulumi.Input<string>;
-    /**
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
@@ -212,13 +203,17 @@ export interface DownloadClientHadoukenState {
 }
 
 /**
- * The set of arguments for constructing a DownloadClientHadouken resource.
+ * The set of arguments for constructing a DownloadClientTorrentDownloadStation resource.
  */
-export interface DownloadClientHadoukenArgs {
+export interface DownloadClientTorrentDownloadStationArgs {
     /**
-     * Category.
+     * Book category.
      */
-    category?: pulumi.Input<string>;
+    bookCategory?: pulumi.Input<string>;
+    /**
+     * Book directory.
+     */
+    bookDirectory?: pulumi.Input<string>;
     /**
      * Enable flag.
      */
@@ -234,7 +229,7 @@ export interface DownloadClientHadoukenArgs {
     /**
      * Password.
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Port.
      */
@@ -248,15 +243,11 @@ export interface DownloadClientHadoukenArgs {
      */
     tags?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Base URL.
-     */
-    urlBase?: pulumi.Input<string>;
-    /**
      * Use SSL flag.
      */
     useSsl?: pulumi.Input<boolean>;
     /**
      * Username.
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
